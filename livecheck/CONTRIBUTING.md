@@ -6,7 +6,7 @@ new patterns, documentation, translations, and code improvements.
 ## Quick start
 
 ```bash
-git clone https://github.com/yourname/livecheck
+git clone https://github.com/Loup0007A/livecheck
 cd livecheck
 pip install -e ".[dev]"
 pytest
@@ -71,7 +71,7 @@ mypy livecheck                # type check
 
 Open an issue and include:
 - Python version (`python --version`)
-- livecheck version (`python -c "import livecheck; print(livecheck.__version__)"`)
+- livecheck version (`python -c "import livecheck-language; print(livecheck.__version__)"`)
 - Minimal reproducer (rule text + value that triggers the bug)
 
 ## Feature requests
