@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-pip install livecheck
+pip install livecheck-language
 ```
 
 No dependencies required. Python 3.10+.
@@ -11,7 +11,7 @@ No dependencies required. Python 3.10+.
 ## First validation
 
 ```python
-from livecheck import validate
+from livecheck-language import validate
 
 validate(42, "must be between 1 and 100")          # passes
 validate("alice@example.com", "must be a valid email")  # passes
@@ -21,7 +21,7 @@ validate(-5, "must be a positive number")           # raises ValidationError
 ## Handling errors
 
 ```python
-from livecheck import validate, ValidationError
+from livecheck-language import validate, ValidationError
 
 try:
     validate(-5, "must be a positive number")
@@ -46,7 +46,7 @@ except ValidationError as e:
 ## Your first Schema
 
 ```python
-from livecheck import Schema, Rule, ValidationError
+from livecheck-language import Schema, Rule, ValidationError
 
 schema = Schema({
     "email":    Rule("must be a valid email"),
