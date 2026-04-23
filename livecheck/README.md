@@ -804,7 +804,7 @@ livecheck profile "must be a valid email" "alice@example.com" --iter 50000
 ### Custom patterns
 
 ```python
-from livecheck.compiler import pattern
+from livecheck-language.compiler import pattern
 
 @pattern(r"must be a french phone number", "must be a french phone number")
 def _fr_phone(m, **kw):
@@ -817,7 +817,7 @@ def _fr_phone(m, **kw):
 ### Using RuleCache for high-throughput
 
 ```python
-from livecheck import RuleCache
+from livecheck-language import RuleCache
 
 cache = RuleCache()
 cache.add("email", "must be a valid email", "must have length at most 254")
@@ -832,7 +832,7 @@ for row in huge_csv:
 ### StrictSchema — reject unknown fields
 
 ```python
-from livecheck import strict_schema, Rule
+from livecheck-language import strict_schema, Rule
 
 schema = strict_schema({
     "name": Rule("must be a non-empty string"),
@@ -845,7 +845,7 @@ schema.validate({"name": "Alice", "age": 30, "extra": "oops"})
 ### Masking sensitive data for logging
 
 ```python
-from livecheck import mask
+from livecheck-language import mask
 
 safe = mask(user_data, "password", "ssn", "credit_card")
 logger.info("User data: %s", safe)  # passwords appear as "***"
