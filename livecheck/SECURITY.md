@@ -23,7 +23,7 @@ within 14 days for confirmed vulnerabilities.
 
 ## Scope
 
-livecheck validates data **locally** using compiled Python functions.
+livecheck-language validates data **locally** using compiled Python functions.
 It makes no network requests at runtime and has no dependencies.
 
 Areas in scope:
