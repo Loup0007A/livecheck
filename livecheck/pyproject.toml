@@ -51,11 +51,11 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage      = "https://github.com/yourname/livecheck"
-Documentation = "https://github.com/yourname/livecheck#readme"
-Repository    = "https://github.com/yourname/livecheck"
-Issues        = "https://github.com/yourname/livecheck/issues"
-Changelog     = "https://github.com/yourname/livecheck/blob/main/CHANGELOG.md"
+Homepage      = "https://github.com/Loup0007A/livecheck"
+Documentation = "https://github.com/Loup0007A/livecheck/tree/main/livecheck#readme"
+Repository    = "https://github.com/Loup0007A/livecheck"
+Issues        = "https://github.com/Loup0007A/livecheck/issues"
+Changelog     = "https://github.com/Loup0007A/livecheck/blob/main/livecheck/CHANGELOG.md"
 
 # ── CLI entry point ───────────────────────────────────────────────────────────
 
