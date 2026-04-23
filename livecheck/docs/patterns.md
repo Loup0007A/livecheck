@@ -1,8 +1,8 @@
 # Pattern reference
 
-livecheck ships with **326 built-in patterns** compiled to pure Python at import time.
+livecheck-language ships with **326 built-in patterns** compiled to pure Python at import time.
 
-Run `livecheck patterns` or `python -c "from livecheck import list_patterns; print('\n'.join(list_patterns()))"` to see all patterns in your installed version.
+Run `livecheck patterns` or `python -c "from livecheck-language import list_patterns; print('\n'.join(list_patterns()))"` to see all patterns in your installed version.
 
 ## Numbers
 
