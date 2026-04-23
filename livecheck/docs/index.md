@@ -1,4 +1,4 @@
-# livecheck
+# livecheck-language
 
 **Natural language data validation for Python.**
 
