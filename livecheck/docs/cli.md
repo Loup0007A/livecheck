@@ -1,6 +1,6 @@
 # CLI reference
 
-After `pip install livecheck`, the `livecheck` command is available:
+After `pip install livecheck-language`, the `livecheck` command is available:
 
 ```
 livecheck <command> [options]
