@@ -1,8 +1,7 @@
 site_name: livecheck
 site_description: Natural language data validation for Python
-site_url: https://yourname.github.io/livecheck
-repo_url: https://github.com/yourname/livecheck
-repo_name: yourname/livecheck
+repo_url: https://github.com/Loup0007A/livecheck
+repo_name: Loup0007A/livecheck
 edit_uri: edit/main/docs/
 
 theme:
@@ -65,6 +64,6 @@ plugins:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/yourname/livecheck
+      link: https://github.com/Loup0007A/livecheck
     - icon: fontawesome/brands/python
       link: https://pypi.org/project/livecheck/
