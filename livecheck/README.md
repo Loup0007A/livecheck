@@ -3,13 +3,13 @@
 > **Natural language data validation for Python.**
 > Write rules in plain English. Handles typos. Zero dependencies.
 
-[![PyPI version](https://img.shields.io/pypi/v/livecheck.svg)](https://pypi.org/project/livecheck/)
+[![PyPI version](https://img.shields.io/pypi/v/livecheck-language.svg)](https://pypi.org/project/livecheck-language/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Zero dependencies](https://img.shields.io/badge/dependencies-zero-brightgreen.svg)](pyproject.toml)
 
 ```python
-from livecheck import validate, Schema, Rule
+from livecheck-language import validate, Schema, Rule
 
 validate(42, "must be between 1 and 100")
 validate("alice@example.com", "must be a valid email")
