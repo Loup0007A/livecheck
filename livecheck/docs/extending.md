@@ -3,7 +3,7 @@
 ## Adding a custom pattern
 
 ```python
-from livecheck.compiler import pattern
+from livecheck-language.compiler import pattern
 
 @pattern(r"must be a valid french phone number", "must be a valid french phone number")
 def _fr_phone(m, **kw):
@@ -15,7 +15,7 @@ def _fr_phone(m, **kw):
     )
 
 # Now usable everywhere
-from livecheck import validate
+from livecheck-language import validate
 validate("+33612345678", "must be a valid french phone number")
 ```
 
@@ -30,7 +30,7 @@ Rules for writing patterns:
 ## Adding i18n aliases
 
 ```python
-from livecheck import add_i18n_rule
+from livecheck-language import add_i18n_rule
 
 add_i18n_rule("deve ser um cpf válido",       "must match pattern '^\\d{11}$'")
 add_i18n_rule("deve ser um cep válido",       "must be a valid postal code")
@@ -41,7 +41,7 @@ add_i18n_rule("doit être un numéro de siret", "must match pattern '^\\d{14}$'"
 ## Adding typo corrections
 
 ```python
-from livecheck.compiler import _CORRECTIONS
+from livecheck-language.compiler import _CORRECTIONS
 
 _CORRECTIONS["longueur minimale"] = "length at least"
 _CORRECTIONS["valeur max"]        = "less than or equal to"
@@ -50,7 +50,7 @@ _CORRECTIONS["valeur max"]        = "less than or equal to"
 ## Registering a RuleSet
 
 ```python
-from livecheck import RuleSet
+from livecheck-language import RuleSet
 
 RuleSet.register("eu_vat_number", [
     "must be a non-empty string",
@@ -65,7 +65,7 @@ RuleSet.is_valid("FR12345678901", "eu_vat_number")
 ## High-throughput validation with RuleCache
 
 ```python
-from livecheck import RuleCache
+from livecheck-language import RuleCache
 
 cache = RuleCache()
 cache.add("email",    "must be a valid email", "must have length at most 254")
