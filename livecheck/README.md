@@ -30,7 +30,7 @@ schema.validate({"email": "alice@example.com", "age": 29, "username": "alice", "
 ## Install
 
 ```bash
-pip install livecheck
+pip install livecheck-language
 ```
 
 No dependencies. Python 3.10+.
@@ -39,7 +39,7 @@ No dependencies. Python 3.10+.
 
 ## Why livecheck?
 
-| Feature | Pydantic | Cerberus | Marshmallow | **livecheck** |
+| Feature | Pydantic | Cerberus | Marshmallow | **livecheck-language** |
 |---|---|---|---|---|
 | Write rules as… | Python types | Dict schemas | Class definitions | **Plain English** |
 | Zero dependencies | ✗ | ✗ | ✗ | **✓** |
@@ -87,7 +87,7 @@ Rules compile to pure Python functions **once** — no AI, no network, no overhe
 ## Core API
 
 ```python
-from livecheck import validate, Rule, Schema, ValidationError
+from livecheck-language import validate, Rule, Schema, ValidationError
 
 # Single value — raises ValidationError on failure
 validate(42, "must be between 1 and 100")
@@ -283,7 +283,7 @@ must be required                  must be callable
 
 ## Fuzzy matching & typos
 
-livecheck auto-corrects common typos and misspellings before compiling:
+livecheck-language auto-corrects common typos and misspellings before compiling:
 
 ```python
 validate(42,  "mst be positiv nombr")      # → "must be a positive number"
@@ -294,7 +294,7 @@ validate(5,   "doit etre entre 1 and 10")  # → French "must be between 1 and 1
 Over 150 corrections are built in. You can add your own:
 
 ```python
-from livecheck.compiler import _CORRECTIONS
+from livecheck-language.compiler import _CORRECTIONS
 _CORRECTIONS["valeur"] = "value"
 ```
 
@@ -326,7 +326,7 @@ validate("x@y.com", "deve ser um email válido")
 Add your own aliases:
 
 ```python
-from livecheck import add_i18n_rule
+from livecheck-language import add_i18n_rule
 add_i18n_rule("deve ser um cpf válido", "must match pattern '[0-9]{11}'")
 ```
 
@@ -335,7 +335,7 @@ add_i18n_rule("deve ser um cpf válido", "must match pattern '[0-9]{11}'")
 ## Schema
 
 ```python
-from livecheck import Schema, Rule
+from livecheck-language import Schema, Rule
 
 schema = Schema({
     "email":    Rule("must be a valid email"),
@@ -356,7 +356,7 @@ schema.validate(data, strict=True)  # also rejects unknown fields
 Chain transformations and validations fluently:
 
 ```python
-from livecheck import Pipeline
+from livecheck-language import Pipeline
 
 result = (
     Pipeline("  Alice@EXAMPLE.COM  ")
@@ -381,7 +381,7 @@ print(p.trace())                         # step-by-step log
 30+ built-in presets; register your own:
 
 ```python
-from livecheck import RuleSet, Schema
+from livecheck-language import RuleSet, Schema
 
 # Use a preset
 RuleSet.is_valid("alice@example.com", "email")   # True
@@ -417,7 +417,7 @@ Built-in presets: `email`, `password`, `strong_password`, `username`, `url`,
 Wrap any callable as a first-class rule:
 
 ```python
-from livecheck import CustomRule, Schema
+from livecheck-language import CustomRule, Schema
 
 profanity_free = CustomRule(
     lambda v: not any(w in v.lower() for w in ["spam", "scam"]),
@@ -443,7 +443,7 @@ schema = Schema({
 Automatically infer a schema from sample records:
 
 ```python
-from livecheck import SchemaBuilder
+from livecheck-language import SchemaBuilder
 
 builder = SchemaBuilder()
 builder.learn({"email": "alice@example.com", "age": 25, "role": "admin"})
@@ -465,7 +465,7 @@ schema.is_valid({"email": "new@user.com", "age": 28, "role": "admin"})  # True
 ## batch_validate — datasets
 
 ```python
-from livecheck import batch_validate, Schema, Rule
+from livecheck-language import batch_validate, Schema, Rule
 
 schema = Schema({
     "email": Rule("must be a valid email"),
@@ -487,7 +487,7 @@ print(report.invalid_rows())  # [3, 7, 12, …]
 ## validate_file — CSV & JSON
 
 ```python
-from livecheck import validate_file, Schema, Rule
+from livecheck-language import validate_file, Schema, Rule
 
 schema = Schema({
     "email": Rule("must be a valid email"),
@@ -510,7 +510,7 @@ report = validate_file("events.jsonl", schema, file_format="jsonl")
 Auto-validate a dict on every write. Rolls back invalid changes:
 
 ```python
-from livecheck import watch, Schema, Rule
+from livecheck-language import watch, Schema, Rule
 
 d = watch(
     {"name": "Alice", "age": 30},
@@ -534,7 +534,7 @@ print(d.history())  # [(timestamp, field, old_val, new_val), …]
 Generate random values that satisfy any rule:
 
 ```python
-from livecheck import generate
+from livecheck-language import generate
 
 generate("must be a valid email")         # "user_4829@sample.net"
 generate("must be between 1 and 100")     # 47
@@ -553,7 +553,7 @@ generate("must be a valid email", n=5)   # ["user_1@…", "user_2@…", …]
 Enforce valid transitions between old and new states:
 
 ```python
-from livecheck import diff_validate, TransitionRule, Schema, Rule
+from livecheck-language import diff_validate, TransitionRule, Schema, Rule
 
 order_schema = Schema({
     "status": Rule("must be one of pending, paid, shipped, delivered, cancelled"),
@@ -579,7 +579,7 @@ diff_validate(old_order, new_order, schema=order_schema, transition_rules=transi
 ## ConditionalRule & DependentSchema
 
 ```python
-from livecheck import ConditionalRule, DependentSchema, Rule
+from livecheck-language import ConditionalRule, DependentSchema, Rule
 
 # Rule that only applies when condition is met
 r = ConditionalRule(
@@ -611,7 +611,7 @@ schema = DependentSchema(
 ## JSON Schema interop
 
 ```python
-from livecheck import from_json_schema, to_json_schema, Schema, Rule
+from livecheck-language import from_json_schema, to_json_schema, Schema, Rule
 import json
 
 # Import from JSON Schema
@@ -639,7 +639,7 @@ print(json.dumps(to_json_schema(schema2, title="User"), indent=2))
 ## Async support
 
 ```python
-from livecheck import async_validate, async_schema_validate
+from livecheck-language import async_validate, async_schema_validate
 
 async def create_user(email: str, age: int):
     await async_validate(email, "must be a valid email")
@@ -662,7 +662,7 @@ Instrument an entire function: captures every `validate()` call, auto-corrects
 typos in rules, checks type hints, and prints a detailed report after each call.
 
 ```python
-from livecheck import checked, validate
+from livecheck-language import checked, validate
 
 @checked
 def register_user(email: str, age: int, username: str):
@@ -672,7 +672,7 @@ def register_user(email: str, age: int, username: str):
 
 register_user("alice@example.com", 25, "alice")
 # ════════════════════════════════════════════════════════════
-#   livecheck report — register_user()
+#   livecheck-language report — register_user()
 # ════════════════════════════════════════════════════════════
 #   Duration : 0.41 ms   Rules : 3/3 passed   Typos : 1 auto-corrected
 #
@@ -694,7 +694,7 @@ register_user("alice@example.com", 25, "alice")
 Validate function arguments before the body runs:
 
 ```python
-from livecheck import validate_args
+from livecheck-language import validate_args
 
 @validate_args(
     email="must be a valid email",
@@ -710,7 +710,7 @@ def create_account(email, age, tags):
 ## Testing utilities
 
 ```python
-from livecheck import assert_valid, assert_invalid
+from livecheck-language import assert_valid, assert_invalid
 
 # In pytest tests
 def test_email_validation():
@@ -727,7 +727,7 @@ def test_age_range():
 ## HTML reports
 
 ```python
-from livecheck import report_html, Schema, Rule
+from livecheck-language import report_html, Schema, Rule
 
 schema = Schema({
     "email": Rule("must be a valid email"),
@@ -750,7 +750,7 @@ pass-rate bar, per-row status table, and detailed error list.
 ## Debug & profiling
 
 ```python
-from livecheck import debug_rule, profile
+from livecheck-language import debug_rule, profile
 
 # Step-by-step trace
 print(debug_rule("muts be valide emial", "alice@example.com"))
