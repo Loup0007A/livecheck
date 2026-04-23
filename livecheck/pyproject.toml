@@ -1,26 +1,25 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# livecheck — pyproject.toml
+# livecheck-language — pyproject.toml
 # Build with:  python -m build
 # Publish with: twine upload dist/*
 # ─────────────────────────────────────────────────────────────────────────────
 
 [build-system]
-requires      = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.backends.legacy:build"
-
-# ── Project metadata ──────────────────────────────────────────────────────────
+requires      = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
 
 [project]
-name        = "livecheck"
+name        = "livecheck-language"
 version     = "0.5.0"
 description = "Natural language data validation — write rules in plain English, handle typos, validate files, generate data, watch live objects"
 readme      = "README.md"
-license     = { file = "LICENSE" }
+license     = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.10"
-dependencies    = []          # zero runtime dependencies
+dependencies    = []
 
 authors = [
-    { name = "livecheck contributors" },
+    { name = "Loup007A" },
 ]
 
 keywords = [
@@ -32,21 +31,13 @@ keywords = [
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
-    "Intended Audience :: Science/Research",
-    "Intended Audience :: System Administrators",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: Software Development :: Quality Assurance",
-    "Topic :: Utilities",
-    "License :: OSI Approved :: MIT License",
-    "Natural Language :: English",
-    "Natural Language :: French",
-    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
-    "Programming Language :: Python :: Implementation :: CPython",
     "Typing :: Typed",
 ]
 
