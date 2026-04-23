@@ -11,8 +11,7 @@
 
 Please **do not** open a public GitHub issue for security vulnerabilities.
 
-Instead, email **security@yourproject.example** (replace with your actual
-address) with:
+Instead, email **lr000000007@gmail.com**  with:
 
 - A description of the vulnerability
 - Steps to reproduce
