@@ -49,7 +49,7 @@ for fname in ["LICENSE", "README.md", "CHANGELOG.md", "pyproject.toml",
 check("py.typed present", (ROOT / "livecheck" / "py.typed").exists())
 
 # 4. README not empty / has content
-readme = (ROOT / "README.md").read_text()
+readme = (ROOT / "README.md").read_text(encoding="utf-8")
 check("README has install section", "pip install livecheck" in readme)
 check("README has code examples", "```python" in readme)
 check(f"README length adequate ({len(readme):,} chars)", len(readme) > 5000)
@@ -58,14 +58,14 @@ check(f"README length adequate ({len(readme):,} chars)", len(readme) > 5000)
 try:
     import livecheck as _lc
     ver = _lc.__version__
-    changelog = (ROOT / "CHANGELOG.md").read_text()
+    changelog = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
     check(f"CHANGELOG has [{ver}] entry", f"[{ver}]" in changelog)
 except Exception:
     pass
 
 # 6. No placeholder URLs
 for fname in ["README.md", "pyproject.toml"]:
-    text = (ROOT / fname).read_text()
+    text = (ROOT / fname).read_text(encoding="utf-8")
     has_placeholder = "yourname" in text or "you@example.com" in text
     check(f"{fname}: no placeholder URLs/emails",
           not has_placeholder, warning=True)
