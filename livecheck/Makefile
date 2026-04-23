@@ -71,7 +71,7 @@ version:
 ## Interactive demo
 demo:
 	@$(PYTHON) -c "
-from livecheck import validate, explain, suggest, generate, debug_rule
+from livecheck-language import validate, explain, suggest, generate, debug_rule
 print('=== validate ===')
 validate('alice@example.com', 'must be a valid email')
 print('alice@example.com — PASS')
