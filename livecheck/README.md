@@ -6,6 +6,7 @@
 [![PyPI version](https://img.shields.io/pypi/v/livecheck.svg)](https://pypi.org/project/livecheck/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/livecheck-language?period=total&units=INTERNATIONAL_SYSTEM&left_color=GREY&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/livecheck-language)
 [![Zero dependencies](https://img.shields.io/badge/dependencies-zero-brightgreen.svg)](pyproject.toml)
 
 ```python
